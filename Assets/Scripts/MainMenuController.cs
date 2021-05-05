@@ -14,11 +14,11 @@ public class MainMenuController : MonoBehaviour
         int highScore = PlayerPrefs.GetInt("HighScore");
         _highScoreTextView.text = highScore.ToString();
 
-        if (_startingSong != null)
+        if(_startingSong != null)
         {
             AudioManager.Instance.PlaySong(_startingSong);
         }
-
+        
     }
 
     public void ResetHighScore()
@@ -27,10 +27,10 @@ public class MainMenuController : MonoBehaviour
         _highScoreTextView.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
 
-    /* public void HideMouse()
-     {
-         Cursor.visible = false;
-     } */
+   /* public void HideMouse()
+    {
+        Cursor.visible = false;
+    } */
 
     public void EndGame()
     {
@@ -38,4 +38,3 @@ public class MainMenuController : MonoBehaviour
     }
 
 }
-

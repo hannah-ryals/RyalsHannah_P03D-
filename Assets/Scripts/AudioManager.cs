@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         #region Singleton Pattern (Simple)
-        if (Instance == null)
+        if(Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);

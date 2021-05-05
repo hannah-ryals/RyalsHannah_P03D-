@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class Level01Controller : MonoBehaviour
 {
     [SerializeField] Text _currentScoreTextView;
-   // public Text timerText;
-    //public Text timeIsOut;
+    public Text timerText;
+    public Text timeIsOut;
     public GameObject player;
     public AudioSource intro;
     public AudioSource end;
@@ -17,10 +17,10 @@ public class Level01Controller : MonoBehaviour
 
     void Start()
     {
-        //StartCoroutine(reloadTimer(0));
-        // StartCoroutine(EndTimer(0));
-        // intro.Play();
-
+        StartCoroutine(reloadTimer(0));
+        StartCoroutine(EndTimer(0));
+        intro.Play();
+        
     }
 
     private void Update()
@@ -32,14 +32,13 @@ public class Level01Controller : MonoBehaviour
         }
     }
 
-    
     public void IncreaseScore(int scoreIncrease)
     {
         _currentScore += scoreIncrease;
         _currentScoreTextView.text = "Score: " + _currentScore.ToString();
     }
-    
 
+   
 
     public void ExitLevel()
     {
@@ -50,7 +49,7 @@ public class Level01Controller : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", _currentScore);
             Debug.Log("New high score: " + _currentScore);
-
+            
         }
         SceneManager.LoadScene("MainMenu");
         Cursor.visible = true;
@@ -58,8 +57,8 @@ public class Level01Controller : MonoBehaviour
 
     }
 
+  
 
-    /*
     IEnumerator reloadTimer(float reloadTimeInSeconds)
     {
         float counter = -30;
@@ -77,7 +76,7 @@ public class Level01Controller : MonoBehaviour
             counter = 0;
             timerText.text = counter.ToString();
             timeIsOut.transform.localScale = new Vector3(1, 1, 1);
-
+            
             //Transport();
             Debug.Log("time ran out");
         }
@@ -97,5 +96,5 @@ public class Level01Controller : MonoBehaviour
         {
             ExitLevel();
         }
-    } */
+    }
 }
