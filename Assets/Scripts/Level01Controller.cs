@@ -6,17 +6,8 @@ using UnityEngine.UI;
 
 public class Level01Controller : MonoBehaviour
 {
-    [SerializeField] Text _currentScoreTextView;
+    [SerializeField] 
     public GameObject player;
-    public AudioSource intro;
-
-    int _currentScore;
-
-    void Start()
-    {
-        //intro.Play();
-
-    }
 
     private void Update()
     {
@@ -25,13 +16,6 @@ public class Level01Controller : MonoBehaviour
         {
             ExitLevel();
         }
-    }
-
-
-    public void IncreaseScore()
-    {
-        _currentScore += 1;
-        _currentScoreTextView.text = "Score: " + _currentScore.ToString();
     }
 
 
