@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _jumpSpeed = 3.5f;
     [SerializeField] private float _doubleJumpMultiplier = 0.5f;
     [SerializeField] private float _sprintSpeed = 2f;
+    [SerializeField] AudioSource feedbackAudioWin;
 
     private CharacterController _controller;
 
@@ -58,5 +59,18 @@ public class Player : MonoBehaviour
         direction.y = _directionY;
 
         _controller.Move(direction * _moveSpeed * Time.deltaTime);
+    }
+
+    public void Kill()
+    {
+        Debug.Log("Player was killed!");
+        this.gameObject.SetActive(false);
+
+    }
+    public void Win()
+    {
+        Debug.Log("Player wins!");
+        feedbackAudioWin.Play();
+
     }
 }
